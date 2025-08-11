@@ -1,0 +1,238 @@
+Aula 1 - Fundamentos do CSS
+
+• Introdução ao CSS
+
+Cascading Style Sheets (Folha de Estilo em Cascata) é um mecanismo para adicionar estilos a um documento web (HTML),
+ele determina como deve ser o layout de uma páginz e como os elementos do site dve ser.
+Foi criado em 1994 por Hakon Wium Lie para facilitar a proramação de sites e controalr o estilo de varias páginas em HTML.
+
+- 1995 o CSS1 foi fundado pela W3C;
+- 1997/1999 o CSS ficou popularmente conhecido;
+- Atualmente se encontra na versão CSS3.
+
+CSS não é considerado uma linguagem de programação e nem de marcação, e sim uma linguagem de estilos.
+
+• O que pode ser criado com CSS?
+
+layouts e estilizações de páginas web; animações; formas geométricas e desenhos; filtros e contadores ("váriaveis" que são incrementadas o regras CSS sem a necessidade de uma linguagem de programação).
+
+• Propriedades e Valores
+
+- Propriedade: é uma característica de uma elemento do nosso HTML (cor de fundo, largura, altura, espaçamento, etc.).
+- Valor: define o resultado de uma propriedade e como o navegador deve exibir o estilo daquele elemento.
+
+O : vai separar o nome da propriedade e o ; vai definir o final do valor, odendo logo em seguida definir outra.
+
+• Formas de Declarar o CSS
+
+- CSS Inline: adiciona o código CSS utilizando o atributo style dentro das tags HTML, elemento por elemeto. Ex:
+
+    <style>
+        background-color: red; (cor de fundo)
+        color: white; (cor da letra)
+    </style>
+
+- CSS Interno: código CSS é adicionado dentro da tag <head> da página HTML, e dentro adiciona outra tag, a <style>, colocando as regras CSS nessa área, sendo necessário declarar o local. Ex:
+
+    <head>
+        <style>
+            h1 {
+            background-color: blue; (cor de fundo)
+            color: green; (cor da letra)
+            };
+        </style>
+    </head>
+
+- CSS Externo: é criado um arquivo com a extensão .css com todas as regras CSS que queira aplicar, esse arquivo é referenciado no HTML da página através d tag <link>. Ex:
+
+no HTML:
+
+<link rel="valor" href="nome do arquivo.css"></>
+
+no aquivo css:
+h1 {
+background-color: orange; (cor de fundo)
+color: pink; (cor da letra)
+};
+
+• Depurando o CSS
+
+O processo de depuração (conhecido como debug), é uma forma de identificar problemas no código-fonte de uma aplicação e entender o seu comportamento.
+
+- Todos os navegadores possuem uma ferramenta voltada para devs., o Dev Tools.
+
+Aula 2 - Seletores
+
+Seletores definem em quais elementos se quer aplicar o CSS.
+
+- Seletor por tags/tipos: busca elementos por uma tag HTML específica. Ex:
+
+HTML: <h1>
+h1 {
+background-color: blue;
+color: pink;
+}
+
+- Seletor por ID (#): busca elementos através do atributo "id", apenas um por página, não pode ter espaço. Ex:
+
+HTML: <p id="nome-do-id">
+#nome-do-id {
+background-color: yellow;
+color: purple;
+}
+
+- Seletor por Classe (.): busca elementos através do atributo "class", pode se repetir na página, sendo possível colocar outra class junto. Ex:
+
+classe 1
+HTML: <p class="nome-da-classe">
+.nome-da-classe {
+background-color: brown;
+color: black;
+}
+
+classe 2
+HTML: <p class="nome-da-classe outra-classe">
+.outra-classe{
+text-transform: uppercase; (texto em maiúsculo)
+}
+
+- Seletor Universal (\*): seleciona todos os elementos HTML, independente se tiver uma classe ou um id. Ex:
+
+HTML: N/A
+
+- {
+  font-weight: bold; (deixa o texto em negrito)
+  }
+
+* Seletor de Atributo ([]): seleciona elementos que possuem um atributo específico em um HTML, sendo possível buscar atributos com um valor em específico, podendo alterar todos ou somente um. Ex:
+
+todos
+HTML: <a title="Spotify" href="#"> Spotify </a>
+[title] {
+color: orange;
+}
+
+somente 1
+HTML: <a title="Spotify" href="#"> Spotify </a>
+[title="Spotify"] {
+color: yellow;
+}
+
+busca por palavra
+HTML: <a title="Streaming Spotify" href="#"> Spotify </a>
+[title~="Streaming"] {
+color: purple;
+}
+
+busca por prefixo (primeira palavra)
+HTML: <a title="Spotify" href="#"> Spotify </a>
+[href^="http://"] {
+color: black;
+}
+
+busca por sufixo (ultima palavra)
+HTML: <a title="Spotify" href="#"> Spotify </a>
+[href$="login"] {
+color: red;
+}
+
+Aula 3 - Combinadores
+
+• Agrupamentos de Seletores
+
+Pode-se aplicar as mesmas regras do CSS para vários seletores diferentes,podendo segurar os seletores utilizando uma vírgula, assim, não há necessidade de copiar e colar os mesmos códigos.
+
+h1, .classe, #id, [id^="botao"] {
+color: white;
+}
+
+• Combinadores
+
+Específica qual o tipo de releção entre mais de um seletor.
+
+- Combinador Descente/ de descêndia (espaço): usado para aplicar o CSS somente em elementos filhos dos elementos específicados. Procura uma seletor e dentro dele procura o seu descendente.
+
+[seletor] [combinador] [descendente]
+
+Ex:
+li li {
+color: green;
+}
+
+- Combinador Filho: seleciona os elementos que são filhos direto do elemento, é específicado pelo sinal de >.
+
+div > p {
+color:> red;
+}
+
+- Combinador Irmão Adjacente: seleciona um elemento que está diretamente depois, representado pelo sinal de +.
+
+div + p {
+color: black;
+}
+
+- Combinador irmão em Geral: seleciona um elemento geral, sem se importar se vem logo depois ou não.
+
+div ~ p {
+color: brown;
+}
+
+Aula 4 - Propriedades de dimensionamento e espaçamneto
+
+• Largura e altura
+
+width = largura, height = altura
+
+div {
+width: initial; (valor padrão)
+height: auto; (largua automática)
+}
+
+inherit = define o valor da propriedade de acordo com o elemento pai
+
+max-width/ height = largura máxima
+min-width/ height = largura mínima
+
+• Margin
+
+Espaçamento em volta dos elementos, por fora das bordas, sendo possível definir margens usando propriedades indivíduais para cada lado do elemento ou uma geral para todos os elementos, sendo possível usar valores positivos e negativos.
+
+div {
+margin-top: 30px; (margem em relação a outro elemento)
+margin-left: 30px; (margem a esquerda)
+margin-right: 30px; (margem a direita)
+margin-bottom: 30px; (margem embaixo do elemento)
+margin: 30px; (espaçamento total)
+margin: 10px 20px 30px
+(parte de cima, laterais, parte de baixo)
+margin: inherit; (pega a margem do elemento pai)
+margin: auto; (margem a partir da largura/ centralizado de forma horizontal)
+margin: -30px (fica escondido)
+}
+
+• Padding
+
+Espaçamento entre elementos internos, separabdo o conteúdo das bordas, negativos e positivos, números específicos para cada lado.
+
+div {
+padding: 20px;
+padding: 10px 20px 30px;
+(parte de cima, laterais, parte de baixo)
+padding-top: 20px;
+padding-left: 20px;
+padding-right: 20px;
+padding-bottom: 20px;
+padding: inherit; (pega a margem do elemento pai)
+padding: -20px;
+}
+
+• Box-sizing
+
+Define como a largura e a altura do elemento serão cálculadas, podendo incluir padding e bordas.
+
+div {
+box-sizing: content-box;
+(soma o padding, largua e altura definidas)
+box-sizzing: border-box;
+(redimensiona o conteúdo somando o padding e as bordas do elemento)
+}

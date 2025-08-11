@@ -1,0 +1,800 @@
+Aula 1 - Cores
+
+    O navegador disponibiliza 140 cores no total para serem utilizadas, existindo várias formas de se definir cores utilizando o CSS. No site W3School tem uma lista de cores que o navegadr suporta.
+
+    • Cores pré-definidas
+
+        Nomes de cores que já estão definidos e podem ser usados diretamente no código CSS para definir a cor de elementos HTML.
+
+        HTML: <p id="pre-definidas">cores pré-definidas</p>
+        #pre-definidas {
+        color: purple; (cor do texto)
+        background: traparent; (deixa o fundo transparênte, respeitando a cor do fundo)
+        border: 2px solid red;
+        (espessura, linha, cor)
+        }
+
+    • Palavra-chave "currentcolor"
+
+        Valor especial que se refere à cor definida pela propriedade color do elemento atual ou de seu ancestral mais próximo. É como uma variável CSS que armazena a cor do texto.
+
+        HTML: <p id="pre-definidas">cores pré-definidas</p>
+        #pre-definidas {
+        color: purple; (cor do texto)
+        border: 2px solid currentcolor;
+        (a borda vai ficar roxa)
+        }
+
+    • RGB e RGBA
+
+        Red, Green, Blue as cores primárias são uzadas para a criação de outras cores. Não se usa os nomes e sim faixas numéricas que podem ir de 0 até 255, o que representa a tonalidade de cada cor, a transparência varia de 1 a 0.
+
+        É possível usar rgb 0% a 100% (não é comum usar %).
+
+        0, 0, 0 = preto
+        255, 255, 255 = branco
+        255, 0, 0 = vermelho
+        0, 255, 0 = verde
+        0, 0, 255 = azul
+
+        0 = totalmente transparênte
+        .5 = meio transparênte
+        1 = totalmente preenchido
+
+        HTML: <p id="rgb">rgb e rgba</p>
+        #rgb {
+        color: rgba(140, 230, 170, 0.86);
+        (vermelho, verde, azul, transparência)
+        background: rgb(50%, 69%, 32%);
+        }
+
+    • Hexadecimal
+
+        Composto por # e mais 8 digitos, composto po números de 0 até 9 e de letras de a até f, os 2 primeiros vermelho, 2 segundos verde e 2 terceiros azul, e os 2 quartos a transparência. Sendo 0 o menor e f o maior, podendo adicionar transparência.
+
+        #000000 = preto
+        #ffffff = branco
+        #ff0000 = vermelho
+        #00ff00 = verde
+        #0000ff = azul
+
+        ff = cor mais intensa
+        00 = cor totalmente transparente
+
+        HTML: <p id="hex">Hexadecimal</p>
+        #hex {
+        color: rgba(207, 75, 75, 0.67)
+        }
+
+    • HSL e HSLA
+
+        Hue = Matriz: grau na roda de cores de 0 a 360, sendo 0/ 360 vermelho, 120 vede e 240 azul.
+
+        Saturation = Saturação: valor perceual, sendo 0% tom de cinza e 100% cor total.
+
+        Lightness = Luminosidade: brilho da cor, sendo 0% totalmente preto e 100% totalmente branco.
+
+        Alpha = Transparência: opacidade da cor, sendo 0 totalmente transparênte e 1 totalmente preenchido.
+
+        HTML: <p id="hsla">HSL e HSLA</p>
+        #hsla {
+        color: hsla(240, 30%, 50%, .7);
+        }
+
+Aula 2 - Imagens
+
+    • Propriedade Obeject-fit
+
+        Determina como uma imagem ou um vídeo deve ser redimensionado para caber dentro do container (caixa do elemento), é um ajuste de objeto dentro de um elemento HTML. Diz para imagem/vídeo se ele deve prezervar ou distorcer a proporção para caber no container.
+
+        - Fill: padrão da propriedade, se distorce para preencher o valor determinado.
+
+            <code>object-fit: fill;</code>
+            <img src="#" alt="" id="fill"/>
+
+        - Contain: mantém a proporção original, mas será redimensionada para caber no valor determinado, sem ficar distorcida.
+
+            <code>object-fit: contain;</code>
+            <img src="#" alt="" id="contain"/>
+
+        - Cover: a imagem preenche todo o container cortando o espaço da imagem que ultrapassar o espaço do elemento, sem distorcer.
+
+            <code>object-fit: cover;</code>
+            <img src="#" alt="" id="cover"/>
+
+        - None: mantém o tamanho original, ignorando as definições do elemento pai.
+
+            <code>object-fit: none;</code>
+            <img src="#" alt="" id="none"/>
+
+        - Scale-down: exibi as imagens de menor configuração.
+
+            <code>object-fit: scale-down;</code>
+            <img src="#" alt="" id="scale-down"/>
+
+    • Propriedade Obeject-position
+
+        Especifica como uma imagem ou vídeo deve se posicionar verticalmente e horizontalemnte dentro do objeto, sendo seu valor padrão ela ficar centralizada.
+
+        img{
+        width: 100%
+        height: 100%
+        object-fit: cover
+        object-position: 50% 50%
+        object-position: 50px 50px
+        object-position: left top
+        object-position: center center
+        object-position: right start
+        object-position: bottom end
+        object-position: start
+        (horizontal, vertical)
+        }
+
+Aula 3 - Fundo dos Elementos
+
+    • Alterando o fundo dos elementos
+
+        - background-color: altera a cor de fundo dos elementos.
+
+            background-color: #00ffc8ff;
+
+        - background-image: permite colocar um fundo gradiente ou imagens (de qualquer formato).
+
+            background-image: url("url do site/ caminho da imagem");
+
+            background-image: url("url do site/ caminho da imagem"),
+            url("url do site/ caminho da imagem/ background-02");
+
+            background-image: linear-gradient ( #2f00ffff, #7700ffff, #cc00ffff);
+
+            background-image: radial-gradient ( #ff0000ff, #ff8800ff, #fffb00ff);
+
+            background-image: repeating-radial-gradient (to top #09ff00ff 0 20px, #00ff55ff 20 px 40 px);
+
+        - Site para consulta de padões de fundo:
+        https://projects.verou.me/css3patterns/
+
+    • Redimensionando as imagens de fundo dos elementos
+
+        - background-size: redimensiona os valores do fundo
+
+            background-image: url("url do site/ caminho da imagem");
+            background-size: auto;
+            (tamanho padrão da imagem)
+
+            background-image: url("url do site/ caminho da imagem");
+            background-size: cover;
+            (distorce a imagem para oculpar todo o fundo do elemento)
+
+            background-image: url("url do site/ caminho da imagem");
+            background-size: contain;
+            (redimensiona a imagem para mostar todo conteúdo)
+
+            background-image: url("url do site/ caminho da imagem");
+            background-size: 300px;
+            background-size: 50%;
+            background-size: 200px 250px;
+            (altura, alrgura)
+            (define o tamanho manualente)
+
+        background-image: url("url do site/ caminho da imagem");
+        background-size: contain, cover;
+        background-size: 200 px 100%, auto;
+        (img 1, img2)
+
+    • Repetição das imagens de fundo
+
+        Por padrão, o CSS repete a imagem dentro do elemento.
+
+        background-image: url("url do site/ caminho da imagem");
+        background-repeat: repeat;
+        (imagm se repete vertical e horizontal várias, valor padrão)
+
+        background-repeat: repeat-x;
+        (imagem se repete somente na horizontal (eixo x))
+
+        background-repeat: repeat-y;
+        (imagem se repete somente na vertical (eixo y))
+
+        background-repeat: space;
+        (cria um espaço entre as imagens tanto na vertical quanto na horizontal)
+
+        background-repeat: round;
+        (toca nas bordas do elemento, sem cortar a imagem)
+
+        background-repeat: no-repeat;
+        (não repete a imagem)
+
+        background-repeat: repeat round
+        (eixo x, eixo y)
+        (2/ mais imagens)
+
+    • Posicionamento das imagens de fundo
+
+        A  imagem se posiona de acordo com o valor definido dentro da propriedade
+
+        background-position: top;
+        background-position: center;
+        background-position: bottom;
+        background-position: left;
+        background-position: right;
+        background-position: 200px;
+        background-position: 50%;
+        background-position: y x;
+        background-position: center 70%;
+
+    • Propriedade background attachment
+
+        Determina se a imagem rola junto com o rsto da página ou é fixada.
+
+        background-attachment: fixed;
+        (a imagem fica fixa mesmo se rolar a página)
+
+        background-attachment: scroll;
+        (a imagem rola junto com a página)
+
+        background-attachment: local;
+        (rola junto com o elemento, não com a página)
+
+    • Propriedade background origin
+
+        Define o ponto de origem da imagem de fundo.
+
+        background-origin: padding-box;
+        (cobre a área do padding, valor padrão)
+
+        background-origin: border-box;
+        (cobre a área da borda)
+
+        background-origin: content-box;
+        (cobre somente a área do conteúdo)
+
+    • Propriedade background clip
+
+        Define até que ponto a imagem/cor deve se estender dentro do elemento.
+
+        background-clip: padding-box;
+        (cobre a área do padding, valor padrão)
+
+        background-clip: border-box;
+        (cobre a área da borda)
+
+        background-clip: content-box;
+        (cobre somente a área do conteúdo)
+
+
+        -webkit-background-clip: text:
+        color: transparent;
+        background-clip: text;
+        (a cor tem que transparênte para poder ver o efeito)
+        (altera somente o texto dento do elemento, não o fundo)
+
+    • Mesclagem
+
+        - background-blend-mode: mescla a cor e a imagem
+
+            background-blend-mode: normal;
+            background-blend-mode: multiply;
+            background-blend-mode: overlay;
+            background-blend-mode: darken;
+            background-blend-mode: lighten;
+            background-blend-mode: color-dodge;
+            background-blend-mode: color-burn;
+            background-blend-mode: hard-light;
+            background-blend-mode: sooft-light
+            background-blend-mode: difference;
+            background-blend-mode: exclusion;
+            background-blend-mode: hue;
+            background-blend-mode: saturation;
+            background-blend-mode: color;
+            background-blend-mode: luminosity;
+
+    • Propriedade Background
+
+        Agrupa todas as propriedades
+
+        background:
+        url (imagem) <!-- imagem -->
+        top center / 200px 200px <!-- posição/ size -->
+        no-repeat <!-- repeat -->
+        fixed <!-- attachment -->
+        padding-box <!-- origin -->
+        content-box <!-- clip -->
+        #ff00000 <!-- color -->
+        ;
+
+Aula 4 - Bordas
+
+    • Tamanho da borda
+
+        É possível adicionar borda aos elementos através da propriedade border, ela define o tamho, o estilo, a cor e o contorno da borda.
+
+        border: 10px solid #6f00ffff;
+        (lados juntos)
+
+        border-top: 10px solid #33ff00ff;
+        border-right: 10px solid #ffd000ff;
+        border-bottom: 10px solid #00ffddff;
+        border-left: 10px solid #e9e2f1ff;
+        (lados separados)
+
+        - Estilização:
+
+            border-style: solid;
+            (linha simples)
+
+            border-style: dashed;
+            (traçado)
+
+            border-style: double;
+            (duas linhas)
+
+            border-style: none;
+            (sem borda)
+
+            border-style: groove;
+            (3d)
+
+            border-style: ridge;
+            (3d com cores invertidas)
+
+            border-style: inset;
+            (aparência funda)
+
+            border-style: outset;
+            (aparência funda com cores invertidas)
+
+            border-style: dotted;
+            (bolinhas)
+
+            border-style: wavy;
+            (ondas)
+
+            border-style: ridge dotted double solid
+            (top, right, bottom, left)
+
+        - Espessura (tamanho):
+
+            border-width: 20px;
+
+            border-width: 20px 30px 40px 50px;
+            (top, right, bottom, left)
+
+            border-width: thin;
+            (fino, =1px)
+
+            border-width: medium;
+            (médio, =3px)
+
+            border-width: thick;
+            (grosso, =5px)
+
+        - Cores:
+
+            border-color: #fffb00ff
+
+            border-color: #ff0000 #00ff00 #0000ff #00ffd5ff
+            (top, right, bottom, left)
+
+    • Arredondando os cantos
+
+        border-radius: 20px;
+        border-radius: 40%;
+        (todos os lados)
+
+        border-radius: 20px 30px 40px 50px;
+        (lados separados)
+
+        border-radius: 20px/30px
+        (vertical e horizontal)
+
+    • Propriedade border image
+
+        Define a borda com uma imagem.
+
+        - border image source: a imagem aparece soente nos 4 cantos.
+
+            border-image-source: url (url/caminho);
+
+            border-image-source: linear-gradient ( #33ff00ff #eeff00ff);
+            (degrade de cores)
+
+            border-image-source: none;
+            (sem imagem)
+
+        - border slice: 1,2,3,4 = cantos do elemento, 5,6,7,8 = meio dos cantos 9 = parte central que é descartada.
+
+            border-image-slice: 300;
+
+            border-image-slice: 300 fill;
+            (adiciona a imagem 9)
+
+        - border image width: define a largura da imagem da borda
+
+            border-image-width: 10px;
+            border-image-width: 10%;
+            (todos os lados)
+
+            border-image-width: auto;
+            (oculpa os espaços 1,2,3,4)
+
+            border-image-width: 10px 20px;
+            (horizontal, vertical)
+
+            border-image-width: 10px 20px 30px 40px;
+            (top, right, bottom, left)
+
+        - border image repeat: controla se a imagem vai se repetir ns borda.
+
+
+            border-image-repeat: repeat;
+            (repete para preencher todos os espaços)
+
+            border-image-repeat: stretch;
+            (estica para preencher todos os espaços, foco nos 5,6,7,8)
+
+            border-image-repeat: round;
+            (redimensiona para caber no espaço necessário)
+
+            border-image-repeat: space;
+            (repete a imagem o máximo de vezes possível sem cortá-la)
+
+        - border image outset: define a distância da imagem em relação ao elemento.
+
+            border-image-outset: 30;
+            (todos os lados)
+
+            border-image-outset: 30 20;
+            (horizontal, vertical)
+
+            border-image-outset: 30 20 10 5;
+            (top, right, bottom, left)
+
+        - border image: junção das propriedades
+
+            border-image:
+            border-image-source: url (url/caminho) 300 / 10px / 1 / round;
+
+Aula 5 - Fontes
+
+    • Tipos de fontes
+
+        - Na tipografia existe os chamados tipos genéricos/ grupo de fontes.
+
+            serif: pequenos traços e prolongamentos no fim de cada letra.
+            font-family: serif;
+
+            sans-serif: fontes simples.
+            font-family: sansserif;
+
+            display: comemorativas/ enfeitadas.
+            font-family: display;
+            font-family: fantasy;
+
+            handwriting: assemelham-se a escrita a mão.
+            font-family: handwriting;
+
+            monospace: caracteres ocupam a mesma largura.
+            font-family: monospace;
+
+            proportional: caracteres proporcionais.
+
+        - Para fontes sem espaço = font-family: arial; com espaço = font-family: "times new roman";
+
+        - Google fontes: catálogo de fontes e ícones de código aberto
+
+    • font face
+
+        - Para usar fontes que não sejam padrão do navegador.
+
+            @font-face{
+                font-family: roboto;
+                src: url("url/caminho");
+                font-weight: normal; //espessura
+                font-weight: bold;
+                font-weight: lighter;
+            }
+
+            p {
+                font-family: roboto;
+                font-weight: normal;
+            }
+
+        - Pode usar qualquer nome para a fonte, mas para melhor semântica usa-se o próprio nome da fonte.
+
+        - Pode usar mais de um font-face para adicionar outras fontes.
+
+     • import url
+
+       - Importa fontes externas para uso.
+
+            @import url("url")
+
+    • font size
+
+        - Tamanho da fonte do texto.
+
+            font-size: 60px;
+            font-size: xx-small;
+            font-size: x-small;
+            font-size: small;
+            font-size: medium;
+            font-size: large;
+            font-size: x-large;
+            font-size: xx-large;
+
+    • font style
+
+        - Estilização da fonte.
+
+            font-style: normal;
+            font-style: italc;
+            font-style: oblique;
+
+    • font weight
+
+        - Espessura da fonte
+
+            font-weight: 400; (de 100 até 900)
+            font-weight: normal;
+            font-weight: bold;
+            font-weight: lighter; (fino)
+            font-weight: bolder; (grosso)
+
+    • font variant
+
+        - Define se o texto deve ser exibido em formato versalete (small caps)
+
+            font-variant: normal;
+            font-variant: small-caps;
+
+    • font stretch
+
+        - Controla a largura da fonte.
+
+            font-stretch: (variação);
+
+    • line height
+
+        - Espaçamento acima e a baixo de cada linha do texto.
+
+            line-height: normal;
+            line-height: 1.5;
+            line-height: 10%;
+
+    • font
+
+        - Junta todos as propriedades
+
+            font: italic small-caps bold 20px/2 georgia, serif;
+
+Aula 6 - Textos
+
+    • text transform
+
+        - É responsável por definir quais caracteres vão  estar em maiúscilo, minúsculo, etc.
+
+            text-transform: none;
+            (valor padrão, não possui nada aplicado)
+
+            text-transform: capitalize;
+            (primeiro caractere fica em maiúsculo)
+
+            text-transform: uppercase;
+            (caps lok)
+
+            text-transform: lowercase;
+            (tudo minúsculo)
+
+            text-transform: inherit;
+            (herda o valor do elemento pai)
+
+    • text align
+
+        - É responsável por alinhar o texto no elemento.
+
+            text-align: left;
+            (valor padrão, alinhado a esquerda)
+
+            text-align: right;
+            (alinhado a direita)
+
+            text-align: center;
+            (alinhado no centro)
+
+            text-align: justify;
+            (alinhamento justificado)
+
+    • text decoration
+
+        - Adiciona/ remove linhas no texto, sejam linhas em cima, em baixo ou no meio.
+
+            text-decoration: none;
+            (valor padrão)
+
+            text-decoration: underline;
+            (adiciona um alinha abaixo do texto)
+
+            text-decoration: line-thrpugh;
+            (linha no meio do texto)
+
+            text-decoration: overline;
+            (adiciona um alinha acima do texto)
+
+        - É possível dividir em outras propriedades
+
+            Text-decoration-line: underline;
+            (tipo de linha)
+
+            Text-decoration-style: wavy-underline;
+            (estilização da linha)
+
+            Text-decoration-color: #ff7300ff;
+            (define a cor da linha)
+
+            Text-decoration-thickness: 3px;
+            (espessura da linha)
+
+        - Todas propriedades juntas
+
+            text-decoration: underline dotted #fcacffff 2px;
+
+    • text ident
+
+        - Define o recuo da primeira linha do texto.
+
+            text-ident: 20px;
+            text-ident: -20px;
+
+    • letter spacing
+
+        - Adiciona um espaçameto entre cada caractere do texto.
+
+            letter-spacing: normal;
+            (valor padrão)
+
+            letter-spacing: 3px;
+            letter-spacing: -3px;
+
+    • word spacing
+
+        - Adiciona um espaçamento entre cada palvra do texto.
+
+            word-spacing: normal;
+            (valor padrão)
+
+            word-spacing: 2px;
+            word-spacing: -2px;
+
+    • white space
+
+        - Define como os espaços em branco do texto de um determinado elemento é tratado.
+
+            white-space: normal;
+            (valor padrão)
+
+            white-space: nowarp;
+            (conteúdo se mantém em uma única linha)
+
+            white-space: pre;
+            (linhas se quebram em novas linhas)
+
+            white-space: pre-line;
+            (texto se quebra para caber no container)
+
+            white-space: pre-wrap;
+            (texto se quebra em quebras de linha)
+
+            white-space: break-spaces;
+            (quebra os espaços para apróxima linha)
+
+    • word wrap
+
+        - Define o tamanho da palavra dentro da linha.
+
+            word-wrap: normal;
+            (valor padrão, ultrapassa os limites do elemento)
+
+            word-wrap: brak-word;
+            (quebra a palavra para caber no container)
+
+    • word break
+
+        - Define quando o texto deve ter uma quebra de linha.
+
+            word-break: normal;
+            (valor padrão, ultrapassa os limites do elemento)
+
+            word-break: break-all;
+            (quebra para caber no container)
+
+            word-break: keep-all;
+            (kangis não quebram linhas)
+
+    • writing mode
+
+        - Define a orientação do texto (vertical/ horizontal)
+
+            writing-mode: horizontal-tp;
+            (valor padrão)
+
+            writing-mode: vertical-rl;
+            (direita a esquerda)
+
+            writing-mode: vertical-lr;
+            (esquerda a direita)
+
+    • text overflow
+
+        - Define para o usuário que tem mais coisa do que se é possível ver no momento.
+
+            text-overflow: clip;
+            (valor padrão)
+
+            text-overflow: ellipsis;
+            (adciona ...)
+
+            text-overflow: string;
+            (somente no firefox)
+
+Aula 7 - Sombras
+
+    • box shadown
+
+        - Define as sombras na horizontal/ vertical
+
+            box-shadown: 20px 30px 5px 7px #152c15ff;
+            (y, x, desfoque, propagação, cor)
+
+            box-shadown: inset 20px 30px 5px 7px #850000ff;
+            (sombra interna)
+
+            box-shadown: 20px 30px 5px 7px #1a1031ff,  inset 20px 30px 5px 7px #7a6315ff;
+            (sombra externa e interna)
+
+            filter: drop-shadown(30px 20px 2px 9px #ffffffff)
+            (gera sombra em uma imagem)
+
+    • text shadown
+
+     - Define sombras no texto por caractere
+
+        text-shadown: 10px -20px 4px 5px #7dffffff
+        (y, x, desfoque, propagação, cor)
+
+Aula 8 - Outros
+
+    • opacity
+
+        - Define o nível de opacidade (transparência) de um elemento.
+
+            opacity: .9;
+
+    • overflow
+
+        - Controla como o conteúdo deve ser exibido caso ultrapasse os limites do container.
+
+            overflow: visible;
+            (conteúdo será exibido mesmo ultrapassando os limites)
+
+            overflow: hidden;
+            (corta o que ultrapassa)
+
+            overflow: scroll;
+            (cria um scroll para visualizar todo o conteúdo(vertical e horizontal))
+
+            overflow: auto;
+            (gera um scroll caso exista necessidade)
+
+        - É possível ultilizar overflow-y para mexer somente na vertical, e overflow-x para mexer somente na horizontal.
+
+    • reset
+
+        - Reset CSS é uma folha de estilos que sobrepõem o CSS padrão que os navegadores aplicam.
+
+            * {
+            padding: 0;
+            }
+            (define as propriedades que quer resetar)
+
+        - É possível pegar modelos na internet.

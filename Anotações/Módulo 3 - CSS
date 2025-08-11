@@ -1,0 +1,84 @@
+Aula 1 - Unidades de medida
+
+    • Unidades de medida no CSS
+
+        - Pode-se divivir em duas categorias: absolutas e relativas.
+
+        - Classificação de tipos numéricos de valores
+
+            <integer> = valores inteiros, positivos/ negativos (ex: 1024; -78).
+
+            <number> = valores decimais (ex.: 0.225; 128; -1.2).
+
+            <percentage> = valores que representam uma fração de algum outro valor (ex.: 50%).
+
+            <dimension> = valores numéricos com unidade dde medida atrelada.
+
+                <length> = distância (px; em; vw; in).
+                <angle> = ângulos (deg; rad; grad; turn).
+                <time> = tempo (s; ms).
+                <resolutions> = resoluções para dispositivos (dpi; dpcm; dppx).
+
+Aula 2 - Unidades de medidas absolutas
+
+    • Unidades de medidas absolutas
+
+        - São medidas que não estão referenciadas a outra medida, possuem valores fixos e não dependem de outro valor/ tamanho para ser calculado.
+
+            cm = centímetros
+            mm = milímetros
+            Q = quarto de milímetro
+            in = polegadas
+            pc = paica
+            pt = pontos
+            px = pixels
+
+    • Pixels físicos e lógicos
+
+        - Pixel é a menor unidade de medida de alguma repesentação digital, e seu tamanho pode variar de tamanho de tela (in) e resolução (px).
+
+        - Densidade é a quantidade de pixels que pode ser armazenado em uma determinada parte da tela.
+
+            maior tela = maior densidade
+            menor tela = menor densidade
+
+        - telas de alta densidade causaram a primeira separação entre pixels de dispositivos e pixels de CSS.
+
+Aula 3 - Unidades de medida relativa
+
+    • Unidade de menida relativa
+
+        - São calculadas com base em unidades de outro elemento, o que faz com o que o resultado possa variar de acordo com o valor da propriedade do elemento no qual está baseado.
+
+            porcentagem = utiliza o elemento pai para se referênciar, não é um valor fixo.
+            ex.: width: 50%; = 250px (metade de 500px)
+
+            em = utiliza como referência o valor da propriedade font-siz do elemento pai no qual está inserido. Caso seja utilizado para outras propriedades que não sejam o tamanho da fonte, o resultado será em relação ao tamanho da fonte do próprio elemento em que está sendo definido.
+            ex.: font-size: 2em; = 40px (multiplica o valor do elemento pai)
+
+            rem (root rem) = relacionado ao tamanho da fonte do elementoo raíz (root), que é a tag HTML.
+            ex.: font-size: 2rem; = 32px (multiplica o valor do elemento root)
+
+            vw (viewport) = área visível de uma página web, as medidas serão calculadas em relação ao tamanho da área em que o usuário está vendo a página. 1 vw = 1% do tamanho da largura da área visível da página.
+
+            ex = utiliza o tamanho da altura do caractere X (em maiúsculo) da fonte do elemento.
+
+            ch = possui como referência o caractere 0 da fonte que está sendo utilizada no elemento, caso a fonte seja monospace é definido quantos caracteres devem caber no elemento
+
+                - ex e ch não são utilizados.
+
+    • Cálculos de valores com CSS
+
+        - Ex.:
+
+           elemento-pai {
+                background-color: #ff0000;
+                width: 300px;
+                box-sizing: border-box;
+            }
+
+            elemento-filho {
+                box-sizing: border-box;
+                background-color: #ff0000;
+                width: cal(100% - 300px);
+            }
